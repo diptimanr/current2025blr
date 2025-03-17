@@ -6,8 +6,13 @@ But this operation has important implications: it requires keeping both sides of
 so the required state for computing the query result might grow indefinitely, 
 depending on the number of distinct input rows of all input tables and intermediate join results.
 
-1. ### Inner Equi-join
+1. ### Inner Equi-join - Returns a simple Cartesian product restricted by the join condition.
    SELECT o.order_id, o.customer_id, p.name, p.brand \
    FROM orders o \
    INNER JOIN products p \
+   ON o.product_id = p.product_id;
+2. ### OUTER Equi-JOIN - Flink supports LEFT, RIGHT, and FULL outer joins.
+   SELECT o.order_id, o.customer_id, p.name, p.brand \
+   FROM orders o \
+   FULL OUTER JOIN products p \
    ON o.product_id = p.product_id;
