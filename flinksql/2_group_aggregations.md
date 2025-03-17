@@ -12,7 +12,7 @@ This would ensure that you do not need to write the fully qualified table name (
 2. SELECT COUNT(\*) AS \`order_count\` \
    FROM \`orders\` \
    GROUP BY \`order_id\`;
-3. SELECT \`customer_id\`, SUM(\`price\`) AS \`total_sold\`
-   FROM \`orders\`
-   GROUP BY \`customer_id\`
+3. SELECT \`customer_id\`, SUM(\`price\`) AS \`total_sold\` \
+   FROM \`orders\` \
+   GROUP BY \`customer_id\` \
    HAVING SUM(\`price\`) > 50;
