@@ -9,3 +9,6 @@ Before running the queries given below, change the catalog and database to \`Use
 This would ensure that you do not need to write the fully qualified table name (catalog.database.table) every time
 
 1. SELECT COUNT(\*) AS \`order_count\` FROM \`orders\`; -- notice how the COUNT(*) increases with time
+2. SELECT COUNT(\*) AS \`order_count\`
+   FROM \`orders\`
+   GROUP BY \`order_id\`;
