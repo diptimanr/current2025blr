@@ -11,4 +11,5 @@ This would ensure that you do not need to write the fully qualified table name (
 1. SELECT COUNT(\*) AS \`order_count\` FROM \`orders\`; -- notice how the COUNT(*) increases with time
 2. SELECT COUNT(\*) AS \`order_count\` \
    FROM \`orders\` \
-   GROUP BY \`order_id\`; \
+   GROUP BY \`order_id\`;
+3. 
