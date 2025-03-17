@@ -6,7 +6,7 @@ But this operation has important implications: it requires keeping both sides of
 so the required state for computing the query result might grow indefinitely, 
 depending on the number of distinct input rows of all input tables and intermediate join results.
 
-1. SELECT o.\`order_id\`, o.\`customer_id\`, p.\`name\`, p.\`brand\' \ -- INNER Equi-JOIN
-   FROM \`orders\` o \
-   INNER JOIN \`products\` p \
-   ON o.\`product_id\` = p.\`product_id\`;
+1. SELECT o.order_id, o.customer_id, p.name, p.brand \ -- INNER Equi-JOIN
+   FROM orders o \
+   INNER JOIN products p \
+   ON o.product_id = p.product_id;
