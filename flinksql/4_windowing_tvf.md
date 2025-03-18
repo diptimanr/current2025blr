@@ -33,11 +33,11 @@ SELECT *
 
 ### Return all rows in the orders table in 10-minute tumbling windows
 SELECT * FROM TABLE( \
-   TUMBLE(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL \'10\' MINUTES));
+     TUMBLE(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL \'10\' MINUTES));
 
 ### Apply aggregation on the tumbling windowed table
 SELECT window_start, window_end, SUM(\`price\`) as \`sum\` \
   FROM TABLE( \
-    TUMBLE(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL \'10\' MINUTES)) \
+      TUMBLE(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL \'10\' MINUTES)) \
   GROUP BY window_start, window_end;
 
