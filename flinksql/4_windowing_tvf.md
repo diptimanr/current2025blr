@@ -56,6 +56,14 @@ Hopping windows are also known as “sliding windows”.
 ### Return all rows in the orders table in hopping windows with a 5 seconds slide and 30 seconds size.
 
 SELECT * FROM TABLE( \
-  HOP(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL '5' SECONDS, INTERVAL '10' SECONDS))
+  HOP(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL '5' SECONDS, INTERVAL '30' SECONDS))
+
+### Apply aggregation on the hopping windowed table
+### Computes the sum of the price column in the orders table within hopping windows that have a 5-seconds slide and 30-seconds size.
+
+SELECT window_start, window_end, SUM(price) as `hop_sum` \
+  FROM TABLE( \
+      HOP(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL '5' SECONDS, INTERVAL '30' SECONDS)) \
+  GROUP BY window_start, window_end;
 
 
