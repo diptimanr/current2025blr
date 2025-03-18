@@ -11,6 +11,7 @@ def main():
     tenv = StreamTableEnvironment.create(env, settings)
 
     env.add_jars("file:///<REPLACE_WITH_YOUR_FLINK_FAKER_JARFILE_PATH>/flink-faker-0.5.3.jar")
+    #env.add_jars("file:///Users/diptimanraichaudhuri/Downloads/flink-faker-0.5.3.jar")
 
     orders_ddl = """
         CREATE TABLE `orders` (
