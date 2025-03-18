@@ -44,3 +44,18 @@ SELECT window_start, window_end, SUM(\`price\`) as \`sum\` \
       TUMBLE(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL \'15\' SECONDS)) \
   GROUP BY window_start, window_end;
 
+
+## Hop
+The HOP function assigns elements to windows of fixed length. 
+Like a TUMBLE windowing function, the size of the windows is configured by the window size parameter. 
+An additional window slide parameter controls how frequently a hopping window is started. 
+Hence, hopping windows can be overlapping if the slide is smaller than the window size. 
+In this case, elements are assigned to multiple windows. 
+Hopping windows are also known as “sliding windows”.
+
+### Return all rows in the orders table in hopping windows with a 5 seconds slide and 30 seconds size.
+
+SELECT * FROM TABLE( \
+  HOP(TABLE \`orders\`, DESCRIPTOR($rowtime), INTERVAL '5' SECONDS, INTERVAL '10' SECONDS))
+
+
